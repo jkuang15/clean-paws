@@ -1,2 +1,1 @@
-x = "whats up!"
-y = "this is new :3"
+# main.py
