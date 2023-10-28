@@ -4,10 +4,6 @@ rf = Roboflow(api_key="79w38aK1oCiq60ZrVmG1")
 project = rf.workspace().project("recyclables-ilmxu")
 model = project.version(1).model
 
-# infer on a local image: "image/image-name-here"
-image_list = ["images/plastic-bottle-ground.jpeg", "images/plastic-fork.png", "images/water-bottle.jpeg", 
-                "images/red-straw.jpeg", "images/cocacola-can.jpeg", "images/fork-chair.jpeg", "images/fork-ground.jpeg",
-                "images/fork-table.jpeg"]
 
 def print_prediction(lst):
     for pic in image_list:
