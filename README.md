@@ -8,5 +8,7 @@ Natalie Perrochon
 Steven Lee
 
 Sources:
-https://docs.roboflow.com/
+https://docs.roboflow.com/ (API documentation)
+
+< add image sources here >
 
