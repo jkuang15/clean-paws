@@ -8,12 +8,15 @@ model = project.version(1).model
 def print_prediction(lst):
     for pic in image_list:
         print(model.predict(pic, confidence=40, overlap=30).json())
+    # no for loop, just one image (call model.predict)
 
 
 if __name__ == "__main__":
     image_list = ["images/plastic-bottle-ground.jpeg", "images/plastic-fork.png", "images/water-bottle.jpeg", 
                 "images/red-straw.jpeg", "images/cocacola-can.jpeg", "images/fork-chair.jpeg", "images/fork-ground.jpeg",
                 "images/fork-table.jpeg"]
+    # no image list (just one image)
+
     print_prediction(image_list)
 
 
