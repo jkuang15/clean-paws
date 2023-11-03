@@ -7,8 +7,7 @@ model = project.version(1).model
 
 def print_prediction(lst):
     for pic in image_list:
-        print(model.predict(pic, confidence=40, overlap=30).json())
-    # no for loop, just one image (call model.predict)
+        print(model.predict(pic, confidence=0, overlap=30).json())
 
 
 if __name__ == "__main__":
