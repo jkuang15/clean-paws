@@ -1,0 +1,77 @@
+
+#import roboflow
+from roboflow import Roboflow
+
+#import motors 
+import motors 
+
+#cv2 is module for video/image capturing
+import cv2 
+ 
+
+#apikey = from Roboflow save unique key     #save api key
+#project = apikey.workspace().project("recyclables")    
+#model = project.version(1).model   
+get model from roboflow using API key 
+
+
+# this func goes through data and outputs what it is 
+# based on predictions 
+def predictions(img): 
+
+	results = from model predict what (img) is 
+
+	#roboflow alr does the predicting for us 
+		
+	return results #should output either paper or plastic
+	
+
+def paper(obj):
+
+	move motors X amount 
+	
+	dump in paper bin
+
+def plastic(obj):
+
+	move motors X amount 
+	
+	dump in plastic bin
+
+
+def metal(obj):
+	
+
+	move motors X amount 
+	
+	dump in metal bin
+	
+
+
+
+if __name__ == "__main__" :
+
+	image = captured image from camera #using cv2.VideoCapture()
+
+	object = predictions(image)
+
+	
+	turn on pin T on the breadboard 
+
+	if object == paper:
+
+		paper()
+
+	elif object == plastic:
+
+		plastic()
+
+
+
+	
+	return rail back to original spot
+
+	turn off pin T
+
+	update webapp 
+

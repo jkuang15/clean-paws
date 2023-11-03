@@ -1,0 +1,9 @@
+Rasp pi connected to breadboard and stuff so that is also connected to my motor (bread board connects everything)
+
+Code rasp pi to do what I want motor to do 
+
+Import rasp pi package to python and write motor 
+
+Turn on pin 9 (pin 9 is what motor is ) 
+// hard code the pins 
+Figure out what functions do what and how to stop motor and figure out that stuff yk 
