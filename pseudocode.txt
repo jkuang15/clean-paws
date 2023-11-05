@@ -17,61 +17,42 @@ get model from roboflow using API key
 
 # this func goes through data and outputs what it is 
 # based on predictions 
-def predictions(img): 
 
-	results = from model predict what (img) is 
-
-	#roboflow alr does the predicting for us 
-		
-	return results #should output either paper or plastic
+FUNCTION predict( Image )
+	SET model from YOLOv5
+	RETURN model prediction when given Image  
 	
+FUNCTION DumpInBin()
+	SEQUENCE 
+		Send signal to Raspberry Pi to rotate platform so object falls into bin
+		Send signal to Raspberry Pi to rotate platform back to neutral position
 
-def paper(obj):
+FUNCTION MovePlatform( platformLocation, endLocation ) 
+	Send signal to Raspberry Pi to move platform from platformLocation to endLocation
+	SET platformLocation to endLocation
 
-	move motors X amount 
-	
-	dump in paper bin
-
-def plastic(obj):
-
-	move motors X amount 
-	
-	dump in plastic bin
-
-
-def metal(obj):
-	
-
-	move motors X amount 
-	
-	dump in metal bin
-	
-
+FUNCTION UpdateWebAppStatus( Status )
+	SET website project status to Status
 
 
 if __name__ == "__main__" :
 
-	image = captured image from camera #using cv2.VideoCapture()
-
-	object = predictions(image)
-
+	SET image to captured image from camera #using cv2.VideoCapture()
+	SET prediction to CALL predict with image
+	SET paperLocation to X
+	SET otherLocation to Y
+	SET platformLocation to zero
 	
-	turn on pin T on the breadboard 
-
-	if object == paper:
-
-		paper()
-
-	elif object == plastic:
-
-		plastic()
-
-
-
+	IF prediction = paper
+		CALL MovePlatform with platformLocation and X
+	ELSE 
+		CALL MovePlatform with platformLocation and Y
 	
-	return rail back to original spot
+	CALL DumpInBin
 
-	turn off pin T
+	WHILE platformLocation > zero
+		Move platform 
+		DECREMENT platformLocation
 
-	update webapp 
+	CALL UpdateWebAppStatus 
 
