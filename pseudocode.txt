@@ -1,13 +1,15 @@
+
 FUNCTION predict( Image )
 	SET model from YOLOv5
 	RETURN model prediction when given Image  
 	
-FUNCTION DumpInBin()
+FUNCTION DumpInBin
 	SEQUENCE 
 		Send signal to Raspberry Pi to rotate platform so object falls into bin
 		Send signal to Raspberry Pi to rotate platform back to neutral position
 
-FUNCTION MovePlatform( platformLocation, endLocation ) 
+FUNCTION MovePlatform( platformLocation, endLocation )
+	CALL UpdateWebAppStatus with Moving
 	Send signal to Raspberry Pi to move platform from platformLocation to endLocation
 	SET platformLocation to endLocation
 
@@ -15,9 +17,8 @@ FUNCTION UpdateWebAppStatus( Status )
 	SET website project status to Status
 
 
-if __name__ == "__main__" :
-
-	SET image to captured image from camera #using cv2.VideoCapture()
+FUNCTION ProcessImage
+	SET image to captured image from camera
 	SET prediction to CALL predict with image
 	SET paperLocation to X
 	SET otherLocation to Y
@@ -33,6 +34,6 @@ if __name__ == "__main__" :
 	WHILE platformLocation > zero
 		Move platform 
 		DECREMENT platformLocation
+	CALL UpdateWebAppStatus with Waiting 
 
-	CALL UpdateWebAppStatus 
 
