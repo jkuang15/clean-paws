@@ -31,9 +31,18 @@ FUNCTION ProcessImage
 	
 	CALL DumpInBin
 
+	if prediction is metal
+		DumpInBin
+	else if prediction is paper
+		cal moveplatefoijfa;falls
+	else move to last bin and dump
+
 	WHILE platformLocation > zero
 		Move platform 
 		DECREMENT platformLocation
 	CALL UpdateWebAppStatus with Waiting 
 
-
+FUNCTION GetUltraSonicInfo
+	CALCULATE distance from Ultrasonic Sensor
+	DO caluculation
+	RETURN approximate percentage of bin quantity
