@@ -1,4 +1,11 @@
 
+FUNCTION DetectMetal
+	GET metal detector signal from Raspberry Pi 
+	IF signal returns metal THEN
+		RETURN true
+	ELSE 
+		RETURN false
+
 FUNCTION predict( Image )
 	SET model from YOLOv5
 	RETURN model prediction when given Image  
@@ -6,43 +13,46 @@ FUNCTION predict( Image )
 FUNCTION DumpInBin
 	SEQUENCE 
 		Send signal to Raspberry Pi to rotate platform so object falls into bin
+		CALL UpdateWebAppPlatformStatus with Dumping
 		Send signal to Raspberry Pi to rotate platform back to neutral position
 
 FUNCTION MovePlatform( platformLocation, endLocation )
-	CALL UpdateWebAppStatus with Moving
+	CALL UpdateWebAppStatus with Sorting
 	Send signal to Raspberry Pi to move platform from platformLocation to endLocation
 	SET platformLocation to endLocation
 
-FUNCTION UpdateWebAppStatus( Status )
-	SET website project status to Status
-
-
-FUNCTION ProcessImage
-	SET image to captured image from camera
-	SET prediction to CALL predict with image
-	SET paperLocation to X
-	SET otherLocation to Y
-	SET platformLocation to zero
-	
-	IF prediction = paper
-		CALL MovePlatform with platformLocation and X
-	ELSE 
-		CALL MovePlatform with platformLocation and Y
-	
-	CALL DumpInBin
-
-	if prediction is metal
-		DumpInBin
-	else if prediction is paper
-		cal moveplatefoijfa;falls
-	else move to last bin and dump
-
-	WHILE platformLocation > zero
-		Move platform 
-		DECREMENT platformLocation
-	CALL UpdateWebAppStatus with Waiting 
+FUNCTION UpdateWebAppPlatformStatus( Status )
+	SET platform status on the website to Status
 
 FUNCTION GetUltraSonicInfo
 	CALCULATE distance from Ultrasonic Sensor
 	DO caluculation
 	RETURN approximate percentage of bin quantity
+
+
+FUNCTION ProcessImage
+	WHILE live feed does not detect an object
+		keep checking for an object
+	IF object is detected
+		SET image to captured image from live feed
+	
+	SET metalLocation to X
+	SET paperLocation to Y
+	SET everythingElseLocation to Z
+	SET platformLocation to zero
+
+	CALL DetectMetal and SET boolean isMetal to result
+	IF isMetal = true THEN
+		CALL MovePlatform with platformLocation and metalLocation
+	ELSE
+		SET prediction to CALL predict with image
+		IF prediction = paper THEN
+			CALL MovePlatform with platformLocation and paperLocation
+		ELSE 
+			CALL MovePlatform with platformLocation and everythingElseLocation
+	
+	CALL DumpInBin
+	CALL MovePlatform with platformLocation and zero
+	CALL UpdateWebAppPlatformStatus with Available 
+
+
