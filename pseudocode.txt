@@ -21,13 +21,19 @@ FUNCTION MovePlatform( platformLocation, endLocation )
 	Send signal to Raspberry Pi to move platform from platformLocation to endLocation
 	SET platformLocation to endLocation
 
-FUNCTION UpdateWebAppPlatformStatus( Status )
-	SET platform status on the website to Status
-
-FUNCTION GetUltraSonicInfo
+FUNCTION GetUltraSonicInfo ( Bin )
 	CALCULATE distance from Ultrasonic Sensor
 	DO caluculation
 	RETURN approximate percentage of bin quantity
+
+FUNCTION UpdateWebAppPlatformStatus( Status )
+	SET platform status on the website to Status
+
+FUNCTION UpdateWebAppBinCapacityPage
+	FOR each bin
+		CALL GetUltraSonicInfo with bin
+			SET metal bin capacity to percentage of bin quantity
+			UPDATE image to represent bin capacity
 
 
 FUNCTION ProcessImage
