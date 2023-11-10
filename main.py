@@ -9,6 +9,7 @@ import time
 # - detection for object in tray
 # - conveyor belt motor control
 # - dumping motor control
+# - ultrasonic sensor + website update
 
 
 
