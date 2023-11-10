@@ -9,7 +9,7 @@ html {
     width: 100%;
     text-align: right;
     background-color: rgb(197, 191, 184);
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Poppins', sans-serif;
     font-size: 20;
     margin: 0%;
     box-sizing: border-box;
@@ -21,7 +21,7 @@ html {
     padding-right: 10%;
     width: 100%;
     text-align: center;
-    background-color: bisque;
+    background-color: #FFFBE4;
     font-family: 'Courier New', Courier, monospace;
     font-size: 20;
     margin: 0%;
