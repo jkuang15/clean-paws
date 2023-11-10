@@ -4,6 +4,12 @@ import RPi.GPIO as GPIO
 from RpiMotorLib import RpiMotorLib
 import time
 
+#TODO: 
+# - website 
+# - detection for object in tray
+# - conveyor belt motor control
+# - dumping motor control
+
 
 
 rf = Roboflow(api_key="79w38aK1oCiq60ZrVmG1")
