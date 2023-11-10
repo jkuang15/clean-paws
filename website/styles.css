@@ -2,38 +2,38 @@ html {
     padding: 0%;
     margin: 0%;
     overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+    background-color: #FFFBE4;
+
 }
 
 .header{
     padding: 2%;
     width: 100%;
     text-align: right;
-    background-color: rgb(197, 191, 184);
-    font-family: 'Poppins', sans-serif;
     font-size: 20;
     margin: 0%;
     box-sizing: border-box;
 }
 
 .about_us{
-    padding: 5%;
+    padding: 1vh;
     padding-left: 10%;
     padding-right: 10%;
     width: 100%;
     text-align: center;
-    background-color: #FFFBE4;
-    font-family: 'Courier New', Courier, monospace;
     font-size: 20;
     margin: 0%;
     box-sizing: border-box;
 }
 
 h3{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: left;
+    padding-top: 5%;
+
 }
 
 p{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: left;
 }
 
