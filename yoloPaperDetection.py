@@ -27,7 +27,7 @@ class PaperDetection:
         Loads the yolov5 model from pytorch hub
         """
         if model_name:
-            model = torch.hub.load('yolov5/', 'custom', path='Users/stevenl/yolov5/yolov5/runs/train/weights/best.pt', source='local') 
+            model = torch.hub.load('yolov5_copy', 'custom', path='/Users/stevenl/clean-paws/yolov5_copy/yolov5/runs/train/yolov5s_results/weights/best.pt', source='local') 
         return model
 
     def score_frame(self, frame):
