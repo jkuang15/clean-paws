@@ -5,8 +5,8 @@ from RpiMotorLib import RpiMotorLib
 import time
 
 #TODO: 
-# - website 
-# - detection for object in tray
+# - website /
+# - detection for object in tray /
 # - conveyor belt motor control
 # - dumping motor control
 # - ultrasonic sensor + website update
