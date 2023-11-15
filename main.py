@@ -1,7 +1,7 @@
 # main.py
 from roboflow import Roboflow
-import RPi.GPIO as GPIO
-from RpiMotorLib import RpiMotorLib
+#import RPi.GPIO as GPIO
+#from RpiMotorLib import RpiMotorLib
 import time
 
 #TODO: 
@@ -32,11 +32,6 @@ if __name__ == "__main__":
     # no image list (just one image)
 
     print_prediction(image_list)
-
-
-    # Motor control 
-
-
 
 
 

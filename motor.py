@@ -6,7 +6,8 @@ def initializePinsAndMotor(): # returns tuple with pin numbers and motor
     direction_pin_motor = 22 # REPLACE W REAL PIN
     step_pin_motor = 23 # REPLACE W REAL PIN
     enable_pin_motor = 24 # REAPLCE W REAL PIN (LOW to enable) 
-    mymotortest = RpiMotorLib.A4988Nema(direction_pin_motor, step_pin_motor, (21,21,21), "DRV8825")
+    mode_pins = -1
+    mymotortest = RpiMotorLib.A4988Nema(direction_pin_motor, step_pin_motor, mode_pins, "DRV8825")
     GPIO.setup(enable_pin_motor,GPIO.OUT)
     return direction_pin_motor, step_pin_motor, enable_pin_motor, mymotortest
 
