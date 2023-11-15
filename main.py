@@ -33,6 +33,8 @@ def moveMotorToPaper(direction_pin_motor, step_pin_motor, enable_pin_motor, mymo
                      .0005, # step delay [sec]
                      False, # True = print verbose output 
                      .05) # initial delay [sec]
+    mymotortest.motor_stop()
+    mymotortest.motor_stop()
 
 
 

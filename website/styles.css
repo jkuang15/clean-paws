@@ -81,6 +81,24 @@ a {
     color: black;
 }
 
+.flex-container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    
+}
 
+.bin_diagram{
+    height: 60vh;
+    width: 20%;
+    border-width: 3%;
+    border-color: black;
+    
+    padding: 5%;
+    background-color: blue;
+    margin: 5%;
+    
+}
 
   
