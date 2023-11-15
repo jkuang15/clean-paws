@@ -62,13 +62,14 @@ class PaperDetection:
         assert player.isOpened()
 
         while True:
-            start_time = time()
             ret, frame = player.read()
-            frame = cv2.resize(frame, (416,416))
-
+            assert ret
+            start_time = time()
             results = self.score_frame(frame)
             frame = self.plot_boxes(results, frame)
             end_time = time()
+            fps = 1/np.round(end_time - start_time, 2)
+            cv2.putText(frame, f'FPS: {int(fps)}', (20,70), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0,255,0), 2)
             cv2.imshow('YOLOv5 Detection', frame)
 
             if cv2.waitKey(5) & 0xFF == 27:
