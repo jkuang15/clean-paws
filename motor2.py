@@ -7,7 +7,7 @@ CW = 1     # Clockwise Rotation
 CCW = 0    # Counterclockwise Rotation
 SPR = 48   # Steps per Revolution (360 / 7.5)
 
-GPIO.setwarnings(False)
+#GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(DIR, GPIO.OUT)
 GPIO.setup(STEP, GPIO.OUT)
