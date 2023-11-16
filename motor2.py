@@ -16,15 +16,18 @@ GPIO.output(DIR, CW)
 step_count = SPR
 delay = .0208
 
+def run_motor():
+    for x in range(step_count):
+        GPIO.output(STEP, GPIO.HIGH)
+        sleep(delay)
+        print("hello")
+        GPIO.output(STEP, GPIO.LOW)
+        sleep(delay)
 
-for x in range(step_count):
-    GPIO.output(STEP, GPIO.HIGH)
-    sleep(delay)
-    print("hello")
-    GPIO.output(STEP, GPIO.LOW)
-    sleep(delay)
-GPIO.cleanup()
+    GPIO.cleanup()
 
+if __name__ == '__main__':
+    run_motor()
 
 # sleep(.5)
 # GPIO.output(DIR, CCW)
