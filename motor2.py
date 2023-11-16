@@ -20,6 +20,7 @@ delay = .0208
 for x in range(step_count):
     GPIO.output(STEP, GPIO.HIGH)
     sleep(delay)
+    print("hello")
     GPIO.output(STEP, GPIO.LOW)
     sleep(delay)
 GPIO.cleanup()
