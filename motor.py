@@ -17,7 +17,7 @@ def moveMotor(direction_pin_motor, step_pin_motor, enable_pin_motor, mymotortest
                      "Full" , # Step type (Full,Half,1/4,1/8,1/16,1/32)
                      step_count, # number of steps
                      .0005, # step delay [sec]
-                     False, # True = print verbose output 
+                     True, # True = print verbose output 
                      .05) # initial delay [sec]
     mymotortest.motor_stop()
     mymotortest.motor_stop()
