@@ -12,7 +12,7 @@ def initializePinsAndMotor(): # returns tuple with pin numbers and motor
     return direction_pin_motor, step_pin_motor, mymotortest
 
 def moveMotor(direction_pin_motor, step_pin_motor, mymotortest, step_count, clockwise):
-    GPIO.output(enable_pin_motor, GPIO.LOW)
+   # GPIO.output(enable_pin_motor, GPIO.LOW)
     mymotortest.motor_go(clockwise, # True=Clockwise, False=Counter-Clockwise
                      "Full" , # Step type (Full,Half,1/4,1/8,1/16,1/32)
                      step_count, # number of steps
