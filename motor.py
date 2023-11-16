@@ -5,13 +5,13 @@ from RpiMotorLib import RpiMotorLib
 def initializePinsAndMotor(): # returns tuple with pin numbers and motor
     direction_pin_motor = 40 # REPLACE W REAL PIN
     step_pin_motor = 38 # REPLACE W REAL PIN
-    enable_pin_motor = 24 # REAPLCE W REAL PIN (LOW to enable) 
+    #enable_pin_motor = 24 # REAPLCE W REAL PIN (LOW to enable) 
     mode_pins = [-1]
     mymotortest = RpiMotorLib.A4988Nema(direction_pin_motor, step_pin_motor, mode_pins, "DRV8825")
-    GPIO.setup(enable_pin_motor,GPIO.OUT)
+    #GPIO.setup(enable_pin_motor,GPIO.OUT)
     return direction_pin_motor, step_pin_motor, enable_pin_motor, mymotortest
 
-def moveMotor(direction_pin_motor, step_pin_motor, enable_pin_motor, mymotortest, step_count, clockwise):
+def moveMotor(direction_pin_motor, step_pin_motor, mymotortest, step_count, clockwise):
     GPIO.output(enable_pin_motor, GPIO.LOW)
     mymotortest.motor_go(clockwise, # True=Clockwise, False=Counter-Clockwise
                      "Full" , # Step type (Full,Half,1/4,1/8,1/16,1/32)
@@ -26,8 +26,8 @@ def cleanUpMotor():
     GPIO.cleanup() 
 
 def main():
-    direction_pin_motor, step_pin_motor, enable_pin_motor, mymotortest = initializePinsAndMotor()
-    moveMotor(direction_pin_motor, step_pin_motor, enable_pin_motor, mymotortest, step_count = 200, clockwise = False)
+    direction_pin_motor, step_pin_motor, mymotortest = initializePinsAndMotor()
+    moveMotor(direction_pin_motor, step_pin_motor, mymotortest, step_count = 200, clockwise = False)
     print("here")
     cleanUpMotor()
 
