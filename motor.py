@@ -11,9 +11,9 @@ def initializePinsAndMotor(): # returns tuple with pin numbers and motor
     GPIO.setup(enable_pin_motor,GPIO.OUT)
     return direction_pin_motor, step_pin_motor, enable_pin_motor, mymotortest
 
-def moveMotor(direction_pin_motor, step_pin_motor, enable_pin_motor, mymotortest, step_count):
+def moveMotor(direction_pin_motor, step_pin_motor, enable_pin_motor, mymotortest, step_count, clockwise):
     GPIO.output(enable_pin_motor, GPIO.LOW)
-    mymotortest.motor_go(False, # True=Clockwise, False=Counter-Clockwise
+    mymotortest.motor_go(clockwise, # True=Clockwise, False=Counter-Clockwise
                      "Full" , # Step type (Full,Half,1/4,1/8,1/16,1/32)
                      step_count, # number of steps
                      .0005, # step delay [sec]
@@ -27,5 +27,5 @@ def cleanUpMotor():
 
 def main():
     direction_pin_motor, step_pin_motor, enable_pin_motor, mymotortest = initializePinsAndMotor()
-    moveMotor(direction_pin_motor, step_pin_motor, enable_pin_motor, mymotortest, step_count = 200)
+    moveMotor(direction_pin_motor, step_pin_motor, enable_pin_motor, mymotortest, step_count = 200, clockwise = False)
     cleanUpMotor()
