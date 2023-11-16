@@ -28,6 +28,7 @@ def cleanUpMotor():
 def main():
     direction_pin_motor, step_pin_motor, enable_pin_motor, mymotortest = initializePinsAndMotor()
     moveMotor(direction_pin_motor, step_pin_motor, enable_pin_motor, mymotortest, step_count = 200, clockwise = False)
+    print("here")
     cleanUpMotor()
 
 
