@@ -9,7 +9,7 @@ def initializePinsAndMotor(): # returns tuple with pin numbers and motor
     mode_pins = [-1]
     mymotortest = RpiMotorLib.A4988Nema(direction_pin_motor, step_pin_motor, mode_pins, "DRV8825")
     #GPIO.setup(enable_pin_motor,GPIO.OUT)
-    return direction_pin_motor, step_pin_motor, enable_pin_motor, mymotortest
+    return direction_pin_motor, step_pin_motor, mymotortest
 
 def moveMotor(direction_pin_motor, step_pin_motor, mymotortest, step_count, clockwise):
     GPIO.output(enable_pin_motor, GPIO.LOW)
