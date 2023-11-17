@@ -7,7 +7,7 @@ def initializePinsAndMotor(): # returns tuple with pin numbers and motor
     step_pin_motor = 20 # REPLACE W REAL PIN
     #enable_pin_motor = 24 # REAPLCE W REAL PIN (LOW to enable) 
     mode_pins = (-1, -1, -1)
-    mymotortest = RpiMotorLib.A4988Nema(direction_pin_motor, step_pin_motor, mode_pins, "DRV8825")
+    mymotortest = RpiMotorLib.DRV8825Nema(direction_pin_motor, step_pin_motor, (-1, -1, -1))
     #GPIO.setup(enable_pin_motor,GPIO.OUT)
     return direction_pin_motor, step_pin_motor, mymotortest
 
@@ -20,7 +20,7 @@ def moveMotor(direction_pin_motor, step_pin_motor, mymotortest, step_count, cloc
                      True, # True = print verbose output 
                      .05) # initial delay [sec]
     mymotortest.motor_stop()
-    mymotortest.motor_stop()
+    # mymotortest.motor_stop()
 
 def cleanUpMotor():
     GPIO.cleanup() 
