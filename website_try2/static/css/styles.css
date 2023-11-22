@@ -101,4 +101,12 @@ a {
     
 }
 
-  
+ul {
+    list-style-type: square; /* Change the bullet style to square */
+    /* Additional styling properties can be added here */
+}
+
+p.bottom_tag{
+    text-align:center;
+    font-size: 15px;
+}
