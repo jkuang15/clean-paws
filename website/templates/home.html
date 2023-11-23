@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <nav class="navbar">
+        <a href="/" class="active">Home</a>
+        <a href="/bin_capacity">Bin Capacity</a>
+    </nav>
+    <div class = "logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="76" height="134" viewBox="0 0 76 134" fill="none">
+            <path d="M8.80419 69.3597L37.5 5.91823L66.1958 69.3597H8.80419Z" stroke="black" stroke-width="4.87805"/>
+            <path d="M46.9512 29.2683L46.9512 131.095" stroke="black" stroke-width="4.87805" stroke-linecap="square"/>
+            <path d="M48.2797 130.229L72.2138 81.5818" stroke="black" stroke-width="4.87805" stroke-linecap="square"/>
+            <path d="M72.2138 81.5818L46.9513 69.5122" stroke="black" stroke-width="4.87805" stroke-linecap="square"/>
+        </svg>
+    </div>
+    
+        <div class = "status">
+            <h2>Status</h2>
+        </div>
+
+        <div class = "about_us">
+            
+            <h3>What is Clean Paws?</h3>
+            <p>Clean Paws is a smart recycling bin that is designed to enhance the efficiency of recyclable 
+                sorting. It utilizes technology to address environmental challenges, offering an intelligent 
+                and convenient solution for effective recycling. This system integrates a metal detector, a 
+                camera, and machine learning algorithms to identify and categorize items into 3 distinct bins: 
+                metal, paper, and miscellaneous. Our key components include the metal detector, camera system, 
+                machine learning, and sorting mechanism. </p>
+            <!-- <br> -->
+            
+            <!-- <p>Software</p>
+            <ul>
+                <li>Elise Ji</li>
+                <li>Jamie Kuang</li>
+                <li>Steven Lee</li>
+                <li>Natalie Perrochon</li>
+            </ul> -->
+            <!-- <br> -->
+
+            <h3>How does it work?</h3>
+            <p>As metallic items pass through the bin, the detector triggers the sorting mechanism to 
+                divert them to the designated metal bin after the camera microphone detects the metal 
+                detector's signal frequency. Using a webcam connected to our computer, the camera will 
+                generate a live feed for the machine learning model to recognize and classify paper objects 
+                based on visual characteristics. The sorting mechanism will be triggered based on the 
+                response received from the metal detectors and live feed camera. it will sort the items 
+                into their respective bins based on the classification provided by our program. If a signal 
+                is not received from the metal detector nor from the paper identifying model, the item 
+                will be sorted into the Miscellaneous bin. </p>
+
+                <h3>Team Members:</h3>
+                <div class = 'flex-container'>
+                    <div class = 'team'>
+                        <h4>Hardware/Electrical</h4>
+                        <ul>
+                            {% for name in hardware_names %}
+                                <li>{{ name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    
+                    
+                    <!-- <br> -->
+                    <div class = 'team'>
+                        <h4>Software</h4>
+                        <ul>
+                            {% for name in software_names %}
+                                <li>{{ name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    
+                </div>
+                
+
+
+        </div>
+        <br>
+        <br>
+        <br>
+        <p class="bottom_tag">Delta Beta Class</p>
+        <br>
+        
+        
+{% endblock %}
