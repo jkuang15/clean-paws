@@ -12,7 +12,9 @@ def landing():
 
 @app.route("/bin_capacity")
 def bin_capacity():
-    photos = ph.get_all_photos()
+    photos = ph.get_photos() # call this from the main one where you check ultrasonic, 
+                            # and then ultrasonic can call photo handler and 
+                            # send the appropriate list of photos
     return render_template("bin_capacity.html", photos=photos)
 
 if __name__ == "__main__":
