@@ -27,7 +27,7 @@
                 camera, and machine learning algorithms to identify and categorize items into 3 distinct bins: 
                 metal, paper, and miscellaneous. Our key components include the metal detector, camera system, 
                 machine learning, and sorting mechanism. </p>
-            <br>
+            <!-- <br> -->
             
             <!-- <p>Software</p>
             <ul>
@@ -36,7 +36,7 @@
                 <li>Steven Lee</li>
                 <li>Natalie Perrochon</li>
             </ul> -->
-            <br>
+            <!-- <br> -->
 
             <h3>How does it work?</h3>
             <p>As metallic items pass through the bin, the detector triggers the sorting mechanism to 
@@ -50,20 +50,29 @@
                 will be sorted into the Miscellaneous bin. </p>
 
                 <h3>Team Members:</h3>
-                <h4>Hardware/Electrical</h4>
-                <ul>
-                    {% for name in hardware_names %}
-                        <li>{{ name }}</li>
-                    {% endfor %}
-                </ul>
+                <div class = 'flex-container'>
+                    <div class = 'team'>
+                        <h4>Hardware/Electrical</h4>
+                        <ul>
+                            {% for name in hardware_names %}
+                                <li>{{ name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    
+                    
+                    <!-- <br> -->
+                    <div class = 'team'>
+                        <h4>Software</h4>
+                        <ul>
+                            {% for name in software_names %}
+                                <li>{{ name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    
+                </div>
                 
-                <br>
-                <h4>Software</h4>
-                <ul>
-                    {% for name in software_names %}
-                        <li>{{ name }}</li>
-                    {% endfor %}
-                </ul>
 
 
         </div>
