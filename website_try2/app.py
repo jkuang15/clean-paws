@@ -6,7 +6,9 @@ app = Flask(__name__)
 
 @app.route("/")
 def landing():
-    return render_template("home.html")
+    hardware_names = ['Miguel Murillo', 'Wilson Nguyen', 'Ellen So', 'Arim Song']
+    software_names = ['Elise Ji', 'Jamie Kuang', 'Steven Lee', 'Natalie Perrochon']
+    return render_template("home.html", hardware_names = hardware_names, software_names = software_names)
 
 @app.route("/bin_capacity")
 def bin_capacity():

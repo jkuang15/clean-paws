@@ -28,22 +28,7 @@
                 metal, paper, and miscellaneous. Our key components include the metal detector, camera system, 
                 machine learning, and sorting mechanism. </p>
             <br>
-            <p>Team Members:</p>
-            <p>Hardware/Electrical</p>
-            <ul>
-                <li>Miguel Murillo</li>
-                <li>Wilson Nguyen</li>
-                <li>Ellen So</li>
-                <li>Arim Song</li>
-            </ul>
             
-            <br>
-            <p>Software</p>
-            <ul>
-                {% for name in names %}
-                    <li>{{ name }}</li>
-                {% endfor %}
-            </ul>
             <!-- <p>Software</p>
             <ul>
                 <li>Elise Ji</li>
@@ -63,6 +48,22 @@
                 into their respective bins based on the classification provided by our program. If a signal 
                 is not received from the metal detector nor from the paper identifying model, the item 
                 will be sorted into the Miscellaneous bin. </p>
+
+                <h3>Team Members:</h3>
+                <h4>Hardware/Electrical</h4>
+                <ul>
+                    {% for name in hardware_names %}
+                        <li>{{ name }}</li>
+                    {% endfor %}
+                </ul>
+                
+                <br>
+                <h4>Software</h4>
+                <ul>
+                    {% for name in software_names %}
+                        <li>{{ name }}</li>
+                    {% endfor %}
+                </ul>
 
 
         </div>
