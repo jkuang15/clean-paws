@@ -36,9 +36,9 @@ decibels = get_decibels(mic)
 
 
 
-
-if 0 < decibels < 10:
-    print("no")
+# for testing
+if decibels > 60:
+    print("yawr")
 
 else:
-    print("yAwr")
+    print("nawr")
