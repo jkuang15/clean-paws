@@ -1,6 +1,6 @@
 import sounddevice as sd
 import numpy as np
-import soundfile as sf
+# import soundfile as sf
 # pip install sounddevice
 
 
@@ -16,7 +16,7 @@ def get_decibels(dev):
 
 
     #capture audio
-    audio_rec = sd.rec(chunk_size, sample_rate = rate, channels = 1, dtype = np.int16, device = dev)
+    audio_rec = sd.rec(chunk_size, samplerate = rate, channels = 1, dtype = np.int16, device = dev)
     sd.wait()
 
     #RMS - getting root mean quare of audio signal: 
