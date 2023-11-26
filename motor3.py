@@ -21,7 +21,8 @@ import time
 #define GPIO pins
 direction= 40 # Direction (DIR) GPIO Pin
 step = 38 # Step GPIO Pin
-EN_pin = 17 # enable pin (LOW to enable)
+EN_pin = 37 # enable pin (LOW to enable)
+
 
 # Declare a instance of class pass GPIO pins numbers and the motor type
 mymotortest = RpiMotorLib.A4988Nema(direction, step, (21,21,21), "DRV8825")
@@ -38,5 +39,5 @@ mymotortest.motor_go(False, # True=Clockwise, False=Counter-Clockwise
                      .0005, # step delay [sec]
                      False, # True = print verbose output 
                      .05) # initial delay [sec]
-
+print('hi')
 GPIO.cleanup() # clear GPIO allocations after run
