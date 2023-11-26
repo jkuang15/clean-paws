@@ -6,7 +6,7 @@ CCW = 0
 Dir = 40
 Stp = 38
 
-GPIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BOARD)
 GPIO.setup(Dir, GPIO.OUT)
 GPIO.setup(Stp, GPIO.OUT)
 
