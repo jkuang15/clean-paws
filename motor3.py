@@ -1,11 +1,11 @@
 import RPi.GPIO as GPIO
 from time import sleep
 
-DIR = 40   # Direction GPIO Pin
-STEP = 38  # Step GPIO Pin
+DIR = 21   # Direction GPIO Pin
+STEP = 20  # Step GPIO Pin
 MS1 = 16   # Microstep Resolution GPIO Pin
 MS2 = 12   # Microstep Resolution GPIO Pin
-ENABLE = 17  # Enable GPIO Pin
+ENABLE = 25  # Enable GPIO Pin
 
 CW = 1     # Clockwise Rotation
 CCW = 0    # Counterclockwise Rotation
@@ -36,15 +36,12 @@ def step_motor(direction, steps, delay):
 
 # Spin the motor 360 degrees in one direction
 step_motor(CW, SPR, 0.002)
-print('step motor')
 
 # Pause for a moment
 sleep(1)
 
 # Spin the motor 360 degrees in the opposite direction
 step_motor(CCW, SPR, 0.002)
-print('step motor')
-
 
 # Disable the motor
 GPIO.output(ENABLE, GPIO.HIGH)
