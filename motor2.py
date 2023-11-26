@@ -8,10 +8,10 @@ CCW = 0    # Counterclockwise Rotation
 SPR = 48   # Steps per Revolution (360 / 7.5)
 
 #GPIO.setwarnings(False)
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(DIR, GPIO.OUT)
-GPIO.setup(STEP, GPIO.OUT)
-GPIO.output(DIR, CW)
+GPIO.setmode(GPIO.BOARD) 
+GPIO.setup(DIR, GPIO.OUT) 
+GPIO.setup(STEP, GPIO.OUT) 
+GPIO.output(DIR, CW) 
 #p=GPIO.PWM(en,1000)
 #p.start(25)
 
@@ -23,7 +23,7 @@ def run_motor():
         GPIO.output(STEP, GPIO.HIGH)
         sleep(delay)
         print("hello")
-        GPIO.output(STEP, GPIO.LOW)
+        #GPIO.output(STEP, GPIO.LOW)
         sleep(delay)
 
     GPIO.cleanup()
