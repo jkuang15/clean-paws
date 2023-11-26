@@ -24,11 +24,11 @@ def run_motor():
         sleep(delay)
         print("hello")
         #GPIO.output(STEP, GPIO.LOW)
-        sleep(delay)
+        #sleep(delay)
 
     GPIO.cleanup()
 
-if __name__ == '__main__':
+if __name__ == '__main__': 
     run_motor()
 
 # sleep(.5)
