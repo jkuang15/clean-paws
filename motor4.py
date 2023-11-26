@@ -17,3 +17,5 @@ for i in range(1000):
     time.sleep(.01)
     GPIO.output(Stp, GPIO.LOW)
     time.sleep(.01)
+
+GPIO.cleanup()
