@@ -39,4 +39,5 @@ mymotortest.motor_go(False, # True=Clockwise, False=Counter-Clockwise
                      False, # True = print verbose output 
                      .05) # initial delay [sec]
 
+print('hello')
 GPIO.cleanup() # clear GPIO allocations after run
