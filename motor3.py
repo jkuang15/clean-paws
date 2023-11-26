@@ -1,43 +1,53 @@
-#######################################
-# Copyright (c) 2021 Maker Portal LLC
-# Author: Joshua Hrisko
-#######################################
-#
-# NEMA 17 (17HS4023) Raspberry Pi Tests
-# --- rotating the NEMA 17 to test
-# --- wiring and motor functionality
-#
-#
-#######################################
-#
 import RPi.GPIO as GPIO
-from RpiMotorLib import RpiMotorLib
-import time
+from time import sleep
 
-################################
-# RPi and Motor Pre-allocations
-################################
-#
-#define GPIO pins
-direction = 13 # Direction (DIR) GPIO Pin
-step = 15 # Step GPIO Pin
-EN_pin = 11 # enable pin (LOW to enable)
+DIR = 40   # Direction GPIO Pin
+STEP = 38  # Step GPIO Pin
+MS1 = 16   # Microstep Resolution GPIO Pin
+MS2 = 12   # Microstep Resolution GPIO Pin
+ENABLE = 17  # Enable GPIO Pin
+
+CW = 1     # Clockwise Rotation
+CCW = 0    # Counterclockwise Rotation
+SPR = 200  # Steps per Revolution (200 steps for DRV8825 in full step mode)
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(DIR, GPIO.OUT)
+GPIO.setup(STEP, GPIO.OUT)
+GPIO.setup(MS1, GPIO.OUT)
+GPIO.setup(MS2, GPIO.OUT)
+GPIO.setup(ENABLE, GPIO.OUT)
+
+# Set microstep resolution (Full step mode in this example)
+GPIO.output(MS1, GPIO.LOW)
+GPIO.output(MS2, GPIO.LOW)
+
+# Enable the motor (LOW means enabled)
+GPIO.output(ENABLE, GPIO.LOW)
+
+def step_motor(direction, steps, delay):
+    GPIO.output(DIR, direction)
+
+    for _ in range(steps):
+        GPIO.output(STEP, GPIO.HIGH)
+        sleep(delay)
+        GPIO.output(STEP, GPIO.LOW)
+        sleep(delay)
+
+# Spin the motor 360 degrees in one direction
+step_motor(CW, SPR, 0.002)
+print('step motor')
+
+# Pause for a moment
+sleep(1)
+
+# Spin the motor 360 degrees in the opposite direction
+step_motor(CCW, SPR, 0.002)
+print('step motor')
 
 
-# Declare a instance of class pass GPIO pins numbers and the motor type
-mymotortest = RpiMotorLib.A4988Nema(direction, step, (21,21,21), "DRV8825")
-GPIO.setup(EN_pin,GPIO.OUT) # set enable pin as output
+# Disable the motor
+GPIO.output(ENABLE, GPIO.HIGH)
 
-###########################
-# Actual motor control
-###########################
-#
-GPIO.output(EN_pin,GPIO.LOW) # pull enable to low to enable motor
-mymotortest.motor_go(False, # True=Clockwise, False=Counter-Clockwise
-                     "Full" , # Step type (Full,Half,1/4,1/8,1/16,1/32)
-                     200, # number of steps
-                     .0005, # step delay [sec]
-                     False, # True = print verbose output 
-                     .05) # initial delay [sec]
-print('hi')
-GPIO.cleanup() # clear GPIO allocations after run
+# Cleanup GPIO when the program exits
+GPIO.cleanup()
