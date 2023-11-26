@@ -18,11 +18,6 @@ def updatePaperPhoto(fullness):
 def get_photos():
     # Add logic to retrieve a list of all photos
     # This could involve querying a database or listing files in a directory
-    # print()
-    # print(os.listdir())
-    # print()
-    # print()
-    # print()
     photo_folder = 'website/static/bin_status_pics'
     all_photos = [f for f in os.listdir(photo_folder) if os.path.isfile(os.path.join(photo_folder, f))]
     # ONLY TO RANDOMIZE FOR RIGHT NOW: NEED TO FIX BEFORE DEMO 

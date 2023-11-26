@@ -1,17 +1,19 @@
 from time import sleep
 import RPi.GPIO as GPIO
 
-DIR = 21   # Direction GPIO Pin
-STEP = 20  # Step GPIO Pin
+DIR = 40   # Direction GPIO Pin
+STEP = 38  # Step GPIO Pin
 CW = 1     # Clockwise Rotation
 CCW = 0    # Counterclockwise Rotation
 SPR = 48   # Steps per Revolution (360 / 7.5)
 
 #GPIO.setwarnings(False)
-GPIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BOARD)
 GPIO.setup(DIR, GPIO.OUT)
 GPIO.setup(STEP, GPIO.OUT)
 GPIO.output(DIR, CW)
+#p=GPIO.PWM(en,1000)
+#p.start(25)
 
 step_count = SPR
 delay = .0208
