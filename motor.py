@@ -3,8 +3,8 @@ from RpiMotorLib import RpiMotorLib
 
 
 def initializePinsAndMotor(): # returns tuple with pin numbers and motor
-    direction_pin_motor = 21 # REPLACE W REAL PIN
-    step_pin_motor = 20 # REPLACE W REAL PIN
+    direction_pin_motor = 40 # REPLACE W REAL PIN
+    step_pin_motor = 38 # REPLACE W REAL PIN
     #enable_pin_motor = 24 # REAPLCE W REAL PIN (LOW to enable) 
     mode_pins = (-1,-1,-1)
     mymotortest = RpiMotorLib.A4988Nema(direction_pin_motor, step_pin_motor, mode_pins, "DRV8825")
