@@ -50,6 +50,10 @@ html {
     
 }
 
+img.bar{
+    size: 70%;
+}
+
 .about_us{
     text-align: center;
     font-size: 20;
