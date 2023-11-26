@@ -10,6 +10,11 @@ def landing():
     software_names = ['Elise Ji', 'Jamie Kuang', 'Steven Lee', 'Natalie Perrochon']
     return render_template("home.html", hardware_names = hardware_names, software_names = software_names)
 
+@app.route("/")
+def status():
+    image_filenames = ['status_bar_pics/idle.svg', 'status_bar_pics/sorting.svg', 'status_bar_pics/thirdfull.svg']
+    return render_template('home.html', image_filenames=image_filenames)
+
 @app.route("/bin_capacity")
 def bin_capacity():
     photos = ph.get_photos() # call this from the main one where you check ultrasonic, 

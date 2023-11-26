@@ -15,8 +15,39 @@
     </div>
     
         <div class = "status">
-            <h2>Status</h2>
+            <!-- <h2>Status</h2> -->
+            <img src="{{ url_for('static', filename='status_bar_pics/binstatus.gif') }}" class="bar" alt="Idle Status Bar" style="width: 50%;">
         </div>
+        
+
+
+        <!-- these two commented blocks are my attempt at having the photos change after 3 seconds
+        fixed this by just putting in a gif lol -->
+        <!-- <script>
+            var imageIndex = 0;
+            var imageFilenames = {{ image_filenames_json | safe }};
+        
+            function changeStatusImage() {
+                imageIndex = (imageIndex + 1) % imageFilenames.length;
+                var imageUrl = "{{ url_for('static', filename='') }}" + imageFilenames[imageIndex];
+                document.getElementById('statusImage').src = imageUrl;
+            }
+        
+            // Call changeStatusImage every 3 seconds
+            setInterval(changeStatusImage, 3000);
+        </script> -->
+        <!-- <script>
+            var imageIndex = 0;
+            var imageFilenames = {{ image_filenames | safe }};  // Assuming passed the image filenames from the Flask route
+    
+            function changeStatusImage() {
+                imageIndex = (imageIndex + 1) % imageFilenames.length;
+                document.getElementById('statusImage').src = "{{ url_for('static', filename='') }}" + imageFilenames[imageIndex];
+            }
+    
+            // Call changeStatusImage every 3 seconds
+            setInterval(changeStatusImage, 3000);
+        </script> -->
 
         <div class = "about_us">
             
