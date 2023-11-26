@@ -1,8 +1,8 @@
 import RPi.GPIO as GPIO
 from time import sleep
 
-DIR = 21   # Direction GPIO Pin
-STEP = 20  # Step GPIO Pin
+DIR = 40   # Direction GPIO Pin
+STEP = 38  # Step GPIO Pin
 MS1 = 16   # Microstep Resolution GPIO Pin
 MS2 = 12   # Microstep Resolution GPIO Pin
 ENABLE = 25  # Enable GPIO Pin
