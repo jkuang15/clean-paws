@@ -3,8 +3,8 @@ import RPi.GPIO as GPIO
 
 CW = 1
 CCW = 0
-Dir = 14
-Stp = 15
+Dir = 40
+Stp = 38
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(Dir, GPIO.OUT)
