@@ -19,9 +19,9 @@ import time
 ################################
 #
 #define GPIO pins
-direction= 40 # Direction (DIR) GPIO Pin
-step = 38 # Step GPIO Pin
-EN_pin = 37 # enable pin (LOW to enable)
+direction = 13 # Direction (DIR) GPIO Pin
+step = 15 # Step GPIO Pin
+EN_pin = 11 # enable pin (LOW to enable)
 
 
 # Declare a instance of class pass GPIO pins numbers and the motor type
