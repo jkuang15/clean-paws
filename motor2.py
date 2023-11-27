@@ -1,42 +1,42 @@
-from time import sleep
 import RPi.GPIO as GPIO
+import time
 
-DIR = 18   # Direction GPIO Pin
-STEP = 16  # Step GPIO Pin
-CW = 1     # Clockwise Rotation
-CCW = 0    # Counterclockwise Rotation
-SPR = 48   # Steps per Revolution (360 / 7.5)
+# GPIO pin numbers
+direction_pin = 18
+step_pin = 16
+enable_pin = 25
 
-#GPIO.setwarnings(False)
-GPIO.setmode(GPIO.BOARD) 
-GPIO.setup(DIR, GPIO.OUT) 
-GPIO.setup(STEP, GPIO.OUT) 
-GPIO.output(DIR, CW) 
-#p=GPIO.PWM(en,1000)
-#p.start(25)
+# Number of steps per revolution for your specific stepper motor
+steps_per_revolution = 1000
 
-step_count = SPR
-delay = .0208
+# Setup GPIO
+GPIO.setmode(GPIO.BCM)
+GPIO.setup([direction_pin, step_pin, enable_pin], GPIO.OUT)
 
-def run_motor():
-    for x in range(step_count):
-        GPIO.output(STEP, GPIO.HIGH)
-        sleep(delay)
-        print("hello")
-        #GPIO.output(STEP, GPIO.LOW)
-        #sleep(delay)
+# Enable the motor (LOW means enabled)
+GPIO.output(enable_pin, GPIO.LOW)
 
-    GPIO.cleanup()
+# Spin the motor 360 degrees in one direction
+GPIO.output(direction_pin, GPIO.HIGH)  # Set direction (HIGH for clockwise, LOW for counterclockwise)
+for _ in range(steps_per_revolution):
+    GPIO.output(step_pin, GPIO.HIGH)
+    time.sleep(0.002)  # Adjust this delay based on your motor and driver
+    GPIO.output(step_pin, GPIO.LOW)
+    time.sleep(0.002)  # Adjust this delay based on your motor and driver
 
-if __name__ == '__main__': 
-    run_motor()
+# Pause for a moment
+time.sleep(1)
 
-# sleep(.5)
-# GPIO.output(DIR, CCW)
-# for x in range(step_count):
-#     GPIO.output(STEP, GPIO.HIGH)
-#     sleep(delay)
-#     GPIO.output(STEP, GPIO.LOW)
-#     sleep(delay)
+# Spin the motor 360 degrees in the opposite direction
+GPIO.output(direction_pin, GPIO.LOW)
+for _ in range(steps_per_revolution):
+    GPIO.output(step_pin, GPIO.HIGH)
+    time.sleep(0.002)  # Adjust this delay based on your motor and driver
+    GPIO.output(step_pin, GPIO.LOW)
+    time.sleep(0.002)  # Adjust this delay based on your motor and driver
 
+# Disable the motor
+GPIO.output(enable_pin, GPIO.HIGH)
 
+# Cleanup GPIO when the program exits
+GPIO.cleanup()
