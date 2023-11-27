@@ -1,4 +1,3 @@
-# clean-paws
 # DB Engineering Project: Clean Paws - Automated Recycling Bin
 
 # TABLE OF CONTENTS
