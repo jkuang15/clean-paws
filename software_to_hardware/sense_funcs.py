@@ -33,9 +33,9 @@ def move(tri, ech):
 
     duration = receive - send 
 
-    duration = round(duration/2, 2)
+    duration = round(3400* duration/2, 2)
 
-    distance = 34000* duration 
+    distance = duration#34000* duration 
 
     print("obj at" + str(distance) + "from ultra sensor")
 
