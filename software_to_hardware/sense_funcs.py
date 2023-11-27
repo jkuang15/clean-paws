@@ -21,11 +21,11 @@ def move(tri, ech):
 
     GPIO.output(tri, GPIO.LOW)
 
-    if GPIO.input(ech) == 0:
+    while GPIO.input(ech) == 0:
         send = time.time() 
         print('send is', send)
 
-    if GPIO.input(ech) == 1:
+    while GPIO.input(ech) == 1:
         receive = time.time()
         print('receive is', receive)
 
@@ -35,9 +35,11 @@ def move(tri, ech):
 
     distance = 34000* duration 
 
-    print("obj at" + distance + "from ultra sensor")
+    print("obj at" + str(distance) + "from ultra sensor")
 
     GPIO.cleanup()
 
     return str(distance)
+
+
 

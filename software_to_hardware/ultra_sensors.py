@@ -3,7 +3,7 @@
 import sense_funcs
 
 #1
-sense_funcs.move(15, 13)
+print(sense_funcs.move(15, 13))
 print('past 1')
 
 # #2
