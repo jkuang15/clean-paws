@@ -21,15 +21,15 @@ def move(tri, ech):
 
     GPIO.output(tri, GPIO.LOW)
 
-    print(GPIO.input(ech))
+    #print(GPIO.input(ech))
 
     while GPIO.input(ech) == 0:
         send = time.time() 
-        print('send is', send)
+        #print('send is', send)
 
     while GPIO.input(ech) == 1:
         receive = time.time()
-        print('receive is', receive)
+       # print('receive is', receive)
 
     duration = receive - send 
 
