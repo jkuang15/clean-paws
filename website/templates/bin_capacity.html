@@ -19,11 +19,12 @@
         <div class = "bin_diagram">2</div>
         <div class = "bin_diagram">3</div>
         -->
-        {% for photo in photos %}
+        {% for photo, label in photos %}
             <!-- <div class = 'photo_bin'> -->
                 <div class = 'photo_w_label'>
                     <img src="{{ url_for('static', filename='bin_status_pics/' + photo) }}" alt="{{ photo }}" class = 'bin_image'>
                     <p class = 'label'>{{photo[:-4]}}% </p>
+                    <p class = 'label'>{{label}} </p>
                 </div>
             <!-- </div> -->
         {% endfor %}

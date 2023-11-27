@@ -22,6 +22,7 @@ def get_photos():
     all_photos = [f for f in os.listdir(photo_folder) if os.path.isfile(os.path.join(photo_folder, f))]
     # ONLY TO RANDOMIZE FOR RIGHT NOW: NEED TO FIX BEFORE DEMO 
     photos = []
+    bins = ['Metal', 'Paper', 'Miscellaneous']
     for i in range(3):
-        photos.append(all_photos[random.randint(0, len(all_photos)-1)])
+        photos.append((all_photos[random.randint(0, len(all_photos)-1)], bins[i]))
     return photos
