@@ -21,6 +21,8 @@ def move(tri, ech):
 
     GPIO.output(tri, GPIO.LOW)
 
+    print(GPIO.input(ech))
+    
     if GPIO.input(ech) == 0:
         send = time.time() 
         print('send is', send)
