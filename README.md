@@ -8,7 +8,7 @@
 
 #### [Usage](#usage)
 
-#### [Acknowledgements](#acknowledgements)
+#### [Acknowledgements](##acknowledgements)
 
 ## Introduction
 
