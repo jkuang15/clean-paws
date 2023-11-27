@@ -3,13 +3,13 @@
 
 # TABLE OF CONTENTS
 
-### [Introduction] (#introduction)
+### [Introduction](#introduction)
 
-### [Installation] (#installation)
+### [Installation](#installation)
 
-### [Usage] (#usage)
+### [Usage](#usage)
 
-### [Acknowledgements] (#acknowledgements)
+### [Acknowledgements](#acknowledgements)
 
 ## Introduction
 
