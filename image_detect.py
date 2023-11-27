@@ -4,10 +4,8 @@ import numpy as np
 
 # load the input images
 def compare_image():
-    img1 = cv2.imread('/Users/eliseji/Desktop/clean-paws/baseee.png')
-    img2 = cv2.imread('/Users/eliseji/Desktop/clean-paws/GeeksForGeeks.png')
-
-    #checking if image loaded correctly:
+    img1 = cv2.imread('/Users/stevenl/Clean_Paws/Base_image.png')
+    img2 = cv2.imread('/Users/stevenl/Clean_Paws/Comp_image.jpg')
 
     # convert the images to grayscale
     img1 = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
@@ -24,3 +22,4 @@ def compare_image():
 
     #error, diff = mse(img1, img2)
     #print("Image matching Error between the two images:",error)
+
