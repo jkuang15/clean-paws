@@ -15,7 +15,8 @@ GPIO.output(Dir, CW)
 for i in range(1000):
     GPIO.output(Stp, GPIO.HIGH)
     time.sleep(.01)
-    GPIO.output(Stp, GPIO.LOW)
+    print('here')
+    #GPIO.output(Stp, GPIO.LOW)
     time.sleep(.01)
 
 GPIO.cleanup()
