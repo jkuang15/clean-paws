@@ -28,7 +28,7 @@ Clean Paws is a smart recycling bin that is designed to enhance the efficiency o
 | HTML       |[HTML Guideline](https://developer.mozilla.org/en-US/docs/MDN/Guidelines/Code_guidelines/HTML)      |       |
 
 
-### Installation
+## Installation
 
 Make sure to install all required modules prior to running with these lines of code below. Copy and paste each line into the terminal.
 
@@ -45,13 +45,13 @@ Notebook: https://colab.research.google.com/github/roboflow-ai/notebooks/blob/ma
 Dataset: https://universe.roboflow.com/natalie-perrochon-yqnhb/recycling-try-2 
 
 
-### Usage
+## Usage
 
 To run the web app via Flask, open ```website/app.py``` and run on local host port. 
 
 To run the main object detecting function, open ```main.py``` and run. The webcam connected to the computer will take photos and run them through the algorithm. A YOLOv5 model is necessary for this code to run. 
 
-### Acknowledgements
+## Acknowledgements
 
 Authors:
 Elise Ji
