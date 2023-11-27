@@ -3,7 +3,7 @@
 import RPi.GPIO as GPIO #importing modules required in program
 import time #to add delays 
 
-GPIO.setmode (GPIO.BCM) 
+GPIO.setmode(GPIO.BCM) 
 
 
 def move(tri, ech):
@@ -21,11 +21,11 @@ def move(tri, ech):
 
     GPIO.output(tri, GPIO.LOW)
 
-    while GPIO.input(ech) == 0:
+    if GPIO.input(ech) == 0:
         send = time.time() 
         print('send is', send)
 
-    while GPIO.input(ech) == 1:
+    if GPIO.input(ech) == 1:
         receive = time.time()
         print('receive is', receive)
 
@@ -39,5 +39,5 @@ def move(tri, ech):
 
     GPIO.cleanup()
 
-    return distance
+    return str(distance)
 
