@@ -23,11 +23,11 @@ def move(tri, ech):
 
     print(GPIO.input(ech))
 
-    if GPIO.input(ech) == 0:
+    while GPIO.input(ech) == 0:
         send = time.time() 
         print('send is', send)
 
-    if GPIO.input(ech) == 1:
+    while GPIO.input(ech) == 1:
         receive = time.time()
         print('receive is', receive)
 
