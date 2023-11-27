@@ -33,7 +33,6 @@ import os
 import platform
 import sys
 from pathlib import Path
-from statistics import mean
 
 import torch
 
@@ -159,6 +158,7 @@ def run(
                 # Rescale boxes from img_size to im0 size
                 det[:, :4] = scale_boxes(im.shape[2:], det[:, :4], im0.shape).round()
                 certainty_score = det[0][4].item()
+                #print(certainty_score)
                 if det[0][5] == 0:
                     if concurrent_num < 5:
                         paper_confidence_interval.append(certainty_score)
@@ -205,7 +205,13 @@ def run(
             # Save results (image with detections)
             if save_img:
                 if dataset.mode == 'image':
-                    cv2.imwrite(save_path, im0)
+                    #does not reutrn number so it errors implement way around this its 3 am go sleep
+                    try:
+                        global value
+                        value = det[0][4].item()
+                    except IndexError:
+                        value =  0
+                    #cv2.imwrite(save_path, im0)
                 else:  # 'video' or 'stream'
                     if vid_path[i] != save_path:  # new video
                         vid_path[i] = save_path
@@ -271,7 +277,7 @@ def parse_opt():
 
 def main(opt):
     weights = 'best.pt'
-    source = 0  # Webcam
+    source = 'Comp_image.png'  # Webcam
     data = 'data/coco128.yaml'
     imgsz = (640, 640)
     conf_thres = 0.25
@@ -330,5 +336,12 @@ def main(opt):
     )
 
 
-opt = parse_opt()
-main(opt)
+
+
+def run_inference():
+    opt = parse_opt()
+    main(opt)
+    return value
+    
+
+    
