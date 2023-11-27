@@ -11,7 +11,7 @@ def move(tri, ech):
 
     GPIO.setup(tri, GPIO.OUT) #trig pin is output
     GPIO.setup(ech, GPIO.IN) #echo pin is input
-    GPIO.OUTPUT(tri, GPIO.LOW) #drives trig pin to OV
+    GPIO.output(tri, GPIO.LOW) #drives trig pin to OV
 
     time.sleep(2) #delay 2 secs
 
