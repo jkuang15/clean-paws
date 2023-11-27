@@ -1,5 +1,5 @@
 # clean-paws
-# DB Engineering Project: Clean Paws - Automated Recyling Bin
+# DB Engineering Project: Clean Paws - Automated Recycling Bin
 
 # TABLE OF CONTENTS
 
