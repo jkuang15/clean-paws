@@ -11,7 +11,7 @@ def move(tri, ech):
 
     GPIO.setup(tri, GPIO.OUT) #trig pin is output
     GPIO.setup(ech, GPIO.IN) #echo pin is input
-    GPIO.OUTPUT(tri, GPIO.LOW) #drives trig pin to OV
+    GPIO.output(tri, GPIO.LOW) #drives trig pin to OV
 
     time.sleep(2) #delay 2 secs
 
@@ -21,11 +21,13 @@ def move(tri, ech):
 
     GPIO.output(tri, GPIO.LOW)
 
-    while GPIO.input(ech) == 0:
+    if GPIO.input(ech) == 0:
         send = time.time() 
+        print('send is', send)
 
-    while GPIO.input(ech) == 1:
+    if GPIO.input(ech) == 1:
         receive = time.time()
+        print('receive is', receive)
 
     duration = receive - send 
 

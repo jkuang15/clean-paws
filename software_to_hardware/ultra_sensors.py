@@ -1,15 +1,18 @@
 # main for ultra sensors
 
-from software_to_hardware import sense_funcs
+import sense_funcs
 
 #1
-sense_funcs.move(15, 16)
+sense_funcs.move(15, 13)
+print('past 1')
 
-#2
-sense_funcs.move(11, 12)
+# #2
+# sense_funcs.move(11, 12)
+# print('past 2')
 
-#3
-sense_funcs.move(29, 31)
+# #3
+# sense_funcs.move(29, 31)
+# print('past 3')
 
 
 
