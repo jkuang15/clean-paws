@@ -1,7 +1,6 @@
 # DB Engineering Project: Clean Paws - Automated Recycling Bin
 
 # TABLE OF CONTENTS
-<!-- toc -->
 
 #### [Introduction](#introduction)
 
@@ -9,7 +8,7 @@
 
 #### [Usage](#usage)
 
-#### [Acknowledgements](##acknowledgements)
+#### [Acknowledgements](#acknowledgements)
 
 ## Introduction
 
