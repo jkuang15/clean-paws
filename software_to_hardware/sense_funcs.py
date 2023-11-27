@@ -37,7 +37,7 @@ def move(tri, ech):
 
     distance = duration#34000* duration 
 
-    print("obj at" + str(distance) + "from ultra sensor")
+    print("obj at " + str(distance) + " CM from ultra sensor")
 
     GPIO.cleanup()
 
