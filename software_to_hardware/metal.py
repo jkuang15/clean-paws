@@ -1,63 +1,56 @@
-import sounddevice as sd
-import numpy as np
+import pyaudio
 import time
-# import soundfile as sf
-# pip install sounddevice
+from math import log10
+import audioop
 
+class SoundMonitor:
+    def __init__(self):
+        self.p = pyaudio.PyAudio()
+        self.WIDTH = 2
+        self.RATE = int(self.p.get_default_input_device_info()['defaultSampleRate'])
+        self.DEVICE = self.p.get_default_input_device_info()['index']
+        self.rms_values = []
 
-def get_decibels(dev):
+    def callback(self, in_data, frame_count, time_info, status):
+        rms = audioop.rms(in_data, self.WIDTH) / 32767
+        self.rms_values.append(rms)
+        return in_data, pyaudio.paContinue
 
-    #how long i want to record for in sec:
-    duration = 5
+    def record_for_seconds(self, duration=5):
+        stream = self.p.open(
+            format=self.p.get_format_from_width(self.WIDTH),
+            input_device_index=self.DEVICE,
+            channels=1,
+            rate=self.RATE,
+            input=True,
+            output=False,
+            stream_callback=self.callback
+        )
+        stream.start_stream()
 
-    #samples/sec
-    rate = 44100 #HZ?
+        try:
+            time.sleep(duration)
+        except KeyboardInterrupt:
+            pass  # Allow the user to interrupt the program with Ctrl+C
 
-    chunk_size = int(duration*rate)
-    #chunk_size = 1024
+        stream.stop_stream()
+        stream.close()
 
+        return self.calculate_average_rms()
 
-    #capture audio
-    audio_rec = sd.rec(chunk_size, samplerate = rate, channels = 1, dtype = np.int16, device = dev)
-    sd.wait()
+    def calculate_average_rms(self):
+        if not self.rms_values:
+            return 0  # Return 0 if no values recorded
+        return sum(self.rms_values) / len(self.rms_values)
 
-    if not audio_rec.any():
-        print("Empty data. Skipping calculation.")
-        
+    def close(self):
+        self.p.terminate()
 
-    #RMS - getting root mean quare of audio signal: 
-    rms = np.sqrt(np.mean(np.square(np.abs(audio_rec))))
-
-    if rms <= 0:
-        print("Invalid RMS value. Skipping calculation.")
-
-
-
-    #convert RMS to decibels: 
-    results = 20 * np.log10(rms)
-
-    time.sleep(1)
-
-    return results
-
-
-#/////////////
-# mic is where it's getting the audio from; usually 1 but not always guaranteed to be constant. // needs testing
-mic = 0
-decibels = get_decibels(mic)
-
-
-
-
-# for testing
-if decibels > 60:
-    print(decibels)
-    print("yawr")
-
-else:
-    print(decibels)
-    print("nawr")
-
-
-
+def run_mic():
+    monitor = SoundMonitor()
+    average_db = monitor.record_for_seconds()
+    output = 20 * log10(average_db)
+    print(output)
+    monitor.close()
+    return output > -5
 

@@ -3,7 +3,7 @@
 import RPi.GPIO as GPIO #importing modules required in program
 import time #to add delays 
 
-GPIO.setmode (GPIO.BCM) 
+GPIO.setmode(GPIO.BCM) 
 
 
 def move(tri, ech):
@@ -22,7 +22,7 @@ def move(tri, ech):
     GPIO.output(tri, GPIO.LOW)
 
     print(GPIO.input(ech))
-    
+
     if GPIO.input(ech) == 0:
         send = time.time() 
         print('send is', send)
@@ -37,9 +37,11 @@ def move(tri, ech):
 
     distance = 34000* duration 
 
-    print("obj at" + distance + "from ultra sensor")
+    print("obj at" + str(distance) + "from ultra sensor")
 
     GPIO.cleanup()
 
-    return distance
+    return str(distance)
+
+
 
