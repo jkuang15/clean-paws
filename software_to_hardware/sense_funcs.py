@@ -3,7 +3,7 @@
 import RPi.GPIO as GPIO #importing modules required in program
 import time #to add delays 
 
-GPIO.setmode(GPIO.BCM) 
+GPIO.setmode(GPIO.BOARD) 
 
 
 def move(tri, ech):
