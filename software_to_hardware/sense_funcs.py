@@ -33,7 +33,7 @@ def move(tri, ech):
 
     duration = receive - send 
 
-    duration = round(3400* duration/2, 2)
+    duration = round(34000* duration/2, 2)
 
     distance = duration#34000* duration 
 
